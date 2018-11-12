@@ -1,0 +1,20 @@
+target/
+!.mvn/wrapper/maven-wrapper.jar
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+#ignore Gradle build file.
+build/
+
+#ignore directories starting with .
+.*/
+
+out/
+
+#ignore graphql generated files.
+graphql.config.json
+graphql.schema.json
