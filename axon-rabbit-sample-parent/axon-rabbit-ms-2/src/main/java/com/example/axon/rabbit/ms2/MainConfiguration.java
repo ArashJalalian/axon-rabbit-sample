@@ -4,6 +4,7 @@ import com.rabbitmq.client.Channel;
 import lombok.extern.slf4j.Slf4j;
 import org.axonframework.amqp.eventhandling.spring.SpringAMQPMessageSource;
 import org.axonframework.config.EventProcessingConfiguration;
+import org.axonframework.config.SagaConfiguration;
 import org.axonframework.eventsourcing.eventstore.EventStorageEngine;
 import org.axonframework.eventsourcing.eventstore.inmemory.InMemoryEventStorageEngine;
 import org.axonframework.serialization.Serializer;
@@ -40,7 +41,6 @@ public class MainConfiguration {
             @Override
             @RabbitListener(queues = "my-event-queue")
             public void onMessage(Message message, Channel channel) {
-                log.info("message received {}", message.toString());
                 super.onMessage(message, channel);
             }
         };
@@ -54,6 +54,11 @@ public class MainConfiguration {
         // When a EventStorageEngine is provided, the EmbeddedEventStore is configured as the EventStore.
         // And if JPA configuration is detected JpaEventStorageEngine is configured as EventStorageEngine.
         return new InMemoryEventStorageEngine();
+    }
+
+    @Bean
+    public SagaConfiguration<MySaga> mySagaSagaConfiguration() {
+        return SagaConfiguration.subscribingSagaManager(MySaga.class, "com.example.axon.rabbit.ms2");
     }
 
     @Autowired

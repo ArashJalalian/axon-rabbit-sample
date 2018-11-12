@@ -11,6 +11,6 @@ public class MyEventListener {
 
     @EventHandler
     public void handle(MyAggregateCreatedEvent event) {
-        log.info("event received in handler.", event.getId());
+        log.info("event received in handler: {}", event);
     }
 }

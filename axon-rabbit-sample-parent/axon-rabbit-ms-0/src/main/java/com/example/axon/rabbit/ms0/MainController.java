@@ -13,14 +13,14 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("v1/ms1")
+@RequestMapping("v1/ms0")
 @RequiredArgsConstructor
 @Transactional
 public class MainController {
 
     private final CommandGateway commandGateway;
 
-    @PostMapping("create")
+    @PostMapping("create-aggregate")
     public ResponseEntity<String> createAggregate(@RequestBody CreateMyAggregateCommand createMyAggregateCommand) {
         UUID uuid = commandGateway.sendAndWait(createMyAggregateCommand);
         return ResponseEntity.ok(uuid.toString());
