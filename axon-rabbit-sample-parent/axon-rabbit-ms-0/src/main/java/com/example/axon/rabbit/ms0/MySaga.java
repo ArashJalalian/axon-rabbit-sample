@@ -20,6 +20,11 @@ public class MySaga {
     @EndSaga
     @SagaEventHandler(associationProperty = "id")
     public void on(MyAggregateCreatedEvent event) {
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         this.id = event.getId();
     }
 }

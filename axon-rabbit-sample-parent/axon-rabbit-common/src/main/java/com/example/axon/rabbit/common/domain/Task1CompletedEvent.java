@@ -1,18 +1,17 @@
 package com.example.axon.rabbit.common.domain;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.axonframework.commandhandling.model.AggregateIdentifier;
+import lombok.ToString;
 
 import java.util.UUID;
 
-@Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class CreateMyAggregateCommand {
-    @AggregateIdentifier
+@Getter
+@ToString
+public class Task1CompletedEvent {
     private UUID id;
     private String message;
 }
