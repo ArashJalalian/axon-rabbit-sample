@@ -25,6 +25,8 @@
         <module>axon-rabbit-common</module>
         <module>axon-rabbit-ms-0</module>
         <module>camunda-launcher</module>
+        <module>eureka-server-launcher</module>
+        <module>microservice-orchestrator</module>
     </modules>
 
     <dependencyManagement>

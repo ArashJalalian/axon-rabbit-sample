@@ -16,6 +16,7 @@ import static org.camunda.bpm.engine.authorization.Authorization.ANY;
 import static org.camunda.bpm.engine.authorization.Authorization.AUTH_TYPE_GRANT;
 import static org.camunda.bpm.engine.authorization.Permissions.ALL;
 
+
 @SpringBootApplication
 @EnableProcessApplication
 public class CamundaLauncher {

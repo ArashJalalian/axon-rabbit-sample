@@ -13,12 +13,12 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class Task1 implements JavaDelegate {
 
-    private final CommandGateway commandGateway;
+    private final CommandGateway distributedCommandGateway;
 
     @Override
     public void execute(DelegateExecution execution) throws Exception {
         String message = execution.getVariable("message").toString();
-        UUID task1Id = commandGateway.sendAndWait(new RunTask1Command(UUID.randomUUID(), message));
+        UUID task1Id = distributedCommandGateway.sendAndWait(new RunTask1Command(UUID.randomUUID(), message));
         execution.setVariable("task1Id", task1Id.toString());
     }
 }

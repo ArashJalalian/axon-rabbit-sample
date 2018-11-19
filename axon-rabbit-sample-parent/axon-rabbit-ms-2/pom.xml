@@ -11,7 +11,9 @@
 
     <artifactId>axon-rabbit-ms-2</artifactId>
 
+
     <dependencies>
+
 
         <dependency>
             <groupId>org.apache.commons</groupId>
